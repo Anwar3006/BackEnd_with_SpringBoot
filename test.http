@@ -1,0 +1,29 @@
+POST http://localhost:8080/api/v1/auth/signup
+Content-Type: application/json
+
+{
+    "fullName": "Ghariib Zayd",
+    "email": "ghaZay@email.com",
+    "password": "p0p0",
+    "role": "ROLE_USER"
+}
+
+### 
+
+GET http://localhost:8080/api/v1/auth/confirm?token=2f54a975-e74b-465a-9706-9c9a8475d79e
+
+
+###
+
+POST http://localhost:8080/api/v1/auth/signin
+Content-Type: application/json
+
+{
+    "email": "ghaZay@email.com",
+    "password": "p0p0"
+}
+
+###
+
+GET http://localhost:8080/api/v1/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MjY4ODAxNTYsImlhdCI6MTcyNTk5MTEyMywiZW1haWwiOiJnaGFaYXlAZW1haWwuY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIifQ.AthXtobHthRfQFESRUMsoC53KLQWENzXmHdRBAuxH98
