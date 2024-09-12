@@ -44,6 +44,6 @@ public class AuthController {
     @GetMapping("/confirm")
     public ResponseEntity<?> enableUser(@RequestParam("token") String token) {
         authService.enableUser(token);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("User Enabled");
     }
 }

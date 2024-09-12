@@ -10,12 +10,16 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.internet.MimeMessage;
+import org.springframework.beans.factory.annotation.Value;
 
 @Service
 public class EMailSender implements MailSenderRepository {
 
     private final Logger logger = LoggerFactory.getLogger(EMailSender.class);
     private JavaMailSender emailsender;
+
+    @Value("${spring.mail.username}")
+    private String sender;
 
     public EMailSender(JavaMailSender emailsender) {
         this.emailsender = emailsender;
@@ -28,7 +32,7 @@ public class EMailSender implements MailSenderRepository {
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMsg, "utf-8");
         try {
             mimeMessageHelper.setTo(recipient);
-            mimeMessageHelper.setFrom("user_auth@curiousfellow.com");
+            mimeMessageHelper.setFrom(sender);
             mimeMessageHelper.setSubject("Account Confirmation: Please confirm your email");
             mimeMessageHelper.setText(body, true);
             emailsender.send(mimeMsg);

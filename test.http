@@ -10,7 +10,7 @@ Content-Type: application/json
 
 ### 
 
-GET http://localhost:8080/api/v1/auth/confirm?token=2f54a975-e74b-465a-9706-9c9a8475d79e
+GET http://localhost:8080/api/v1/auth/confirm?token=68ced91c-8743-4c7f-b8a8-9750e178524a
 
 
 ###
